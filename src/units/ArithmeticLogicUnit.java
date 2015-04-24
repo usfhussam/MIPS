@@ -47,10 +47,10 @@ public class ArithmeticLogicUnit {
 				result = rs.getValue() < rt.getValue() ? 1 : 0;
 				break;
 			case "sll":
-				result = rs.getValue() << instruction.getShiftAmount();
+				result = rt.getValue() << instruction.getShiftAmount();
 				break;
 			case "srl":
-				result = rs.getValue() >> instruction.getShiftAmount();
+				result = rt.getValue() >> instruction.getShiftAmount();
 				break;
 		}
 		return result;

@@ -59,7 +59,6 @@ public class Simulator {
 		}
 	}
 	public void fetch() {
-//		System.out.println(pc);
 		currentInstructionIndex = pc >> 2; // divide pc by 4
 		pc += 4;
 		currentRawInstruction = rawInstructions.get(currentInstructionIndex);
