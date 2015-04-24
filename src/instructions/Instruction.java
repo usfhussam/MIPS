@@ -65,6 +65,9 @@ public class Instruction {
 			break;
 		case 5:
 			iConstant = hooksHtbl.get(registers[0].trim());
+			break;
+		case 6:
+			rs = RegisterFile.getRegister(registers[0].trim());
 		}
 
 	}
