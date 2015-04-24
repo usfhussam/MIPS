@@ -1,3 +1,7 @@
+import registers.RegisterFile;
+
+
+
 
 public class Simulator {
  private int[] memory = new int[1024];
