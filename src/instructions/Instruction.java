@@ -63,6 +63,8 @@ public class Instruction {
 			rt = RegisterFile.getRegister(registers[1].trim());
 			iConstant = hooksHtbl.get(registers[2].trim());
 			break;
+		case 5:
+			iConstant = hooksHtbl.get(registers[0].trim());
 		}
 
 	}
