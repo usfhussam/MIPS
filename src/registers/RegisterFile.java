@@ -7,7 +7,7 @@ public class RegisterFile {
 	
 	public static void init(){
 		registersHtbl = new Hashtable<String, Register>();
-		registersHtbl.put("$0", new Register());
+		registersHtbl.put("$0", new Register("$0"));
 		registersHtbl.put("$at", new Register());
 		registersHtbl.put("$v0", new Register());
 		registersHtbl.put("$v1", new Register());

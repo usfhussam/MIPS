@@ -1,4 +1,6 @@
 package instructions;
+import java.util.Hashtable;
+
 import registers.Register;
 import registers.RegisterFile;
 
@@ -11,10 +13,17 @@ public class Instruction {
 	private int shamt;
 	private int format;
 	private String type;
-	public Instruction(String inst) {
+	private String branchingHook;
+	private Hashtable<String, Integer> hooksHtbl;
+	
+	public Instruction() {
+		
+	}
+	public Instruction(String inst, Hashtable<String, Integer>hooksHtbl) {
 		rs = new Register();
 		rt = new Register();
 		rd = new Register();
+		this.hooksHtbl = hooksHtbl;
 		decodeInstruction(inst);
 	}
 	public void decodeInstruction(String instruction) {
@@ -44,9 +53,16 @@ public class Instruction {
 		case 2:
 		case 3:
 			rt  = RegisterFile.getRegister(registers[0].trim());
-			String[] offsetSplit = registers[1].trim().split("(");
+			String[] offsetSplit = registers[1].trim().split("\\(");
 			iConstant = Integer.parseInt(offsetSplit[0].trim());
-			rs = RegisterFile.getRegister(registers[1].trim().substring(0,registers[1].length()-1));
+			rs = RegisterFile.getRegister(offsetSplit[1].trim().substring(0,offsetSplit[1].length()-1));
+			System.out.println(rs);
+			break;
+		case 4: 
+			rs = RegisterFile.getRegister(registers[0].trim());
+			rt = RegisterFile.getRegister(registers[1].trim());
+			iConstant = hooksHtbl.get(registers[2].trim());
+			break;
 		}
 
 	}
@@ -83,7 +99,7 @@ public class Instruction {
 				format = 3;
 				break;
 			case "beq":
-			case "bneq":
+			case "bne":
 				format = 4;
 				break;
 			case "j":
@@ -99,7 +115,7 @@ public class Instruction {
 
 		}
 	}
-	public Register registerToWritein() {
+	public Register getRegisterToWriteIn() {
 		switch(format) {
 		case 0:
 			return rd;

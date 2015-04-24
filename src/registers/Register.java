@@ -8,7 +8,12 @@ public class Register {
  }
  
  public Register() {
-	 this.setValue(0);
+	 name = "";
+	 setValue(0);
+ }
+ 
+ public Register(String name) {
+	 this.name = name;
  }
 public int getValue() {
 	return value;
