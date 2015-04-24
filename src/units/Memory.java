@@ -38,8 +38,16 @@ public class Memory {
 		byte[] array = read(index, index+1);
 		return (byte) array[0];
 	}
+	public byte[] break_word(int value) {
+		return new byte[] { (byte) (value >>> 24), (byte) (value >>> 16),
+				(byte) (value >>> 8), (byte) value };
+	}
 	public void store_word(int index, int value) {
 		byte[] array = break_word(value);
-		write(index,array);
+		store(index,array);
 	}
+	public void store_byte(int index, int value) {
+		store(index, new byte[] {((byte) (value & 0x000000FF))});
+	}
+
 }
