@@ -41,9 +41,11 @@ public class Instruction {
 			break;
 
 		case 2:
+		case 3:
 			rt  = RegisterFile.getRegister(registers[0].trim());
-			String[] offsetSplit = registers[1].split("(");
-			//String offset = registers
+			String[] offsetSplit = registers[1].trim().split("(");
+			iConstant = Integer.parseInt(offsetSplit[0].trim());
+			rs = RegisterFile.getRegister(registers[1].trim().substring(0,registers[1].length()-1));
 		}
 
 	}
@@ -56,6 +58,10 @@ public class Instruction {
 		case "nor":
 		case "slt":
 		case "sltu":
+		
+			format = 0;
+			
+			break;
 		case "sll":
 		case "srl":
 			format = 0;
