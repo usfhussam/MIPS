@@ -74,8 +74,11 @@ public class Simulator {
 		if(currentInstruction.getType().equals("jal")) {
 			writeBackValue = pc;
 		}
-		if(alu.branch) {			
+		if(alu.branch) {
 			pc = currentInstruction.getImmediateConstant(); 
+			if(currentInstruction.getType().equals("jr")) {
+				pc = currentInstruction.getRs().getValue();
+			}
 		}
 	}
 	
@@ -108,7 +111,7 @@ public class Simulator {
 	public void writeBack() {
 		Register writingRegister = currentInstruction.getRegisterToWriteIn();
 		if(currentInstruction.getFormat() != 3 && currentInstruction.getFormat() !=4) {
-			if(!currentInstruction.getType().equals("j")) {
+			if(writingRegister != null && !currentInstruction.getType().equals("j")) {
 				writingRegister.setValue(writeBackValue);
 			}
 		}

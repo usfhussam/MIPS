@@ -23,6 +23,7 @@ public class ArithmeticLogicUnit {
 		case 4:
 			output = executeBranchTypeInstruction(instruction);
 		case 5:
+		case 6:
 			output = executeJumpTypeInstruction(instruction);
 		}
 	}
@@ -101,12 +102,11 @@ public class ArithmeticLogicUnit {
 		int result = 0;
 		String type = instruction.getType();
 		switch(type) {
+			case "jr":
 			case "jal":
 			case "j":
 				branch = true;
-				break;
-	
-				
+				break;	
 		}
 		return result;
 	}
