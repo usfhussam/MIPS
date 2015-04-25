@@ -56,7 +56,6 @@ public class Instruction {
 			String[] offsetSplit = registers[1].trim().split("\\(");
 			iConstant = Integer.parseInt(offsetSplit[0].trim());
 			rs = RegisterFile.getRegister(offsetSplit[1].trim().substring(0,offsetSplit[1].length()-1));
-			System.out.println(rs);
 			break;
 		case 4: 
 			rs = RegisterFile.getRegister(registers[0].trim());

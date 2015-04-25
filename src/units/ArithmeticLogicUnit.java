@@ -75,7 +75,7 @@ public class ArithmeticLogicUnit {
 				break;
 			case "lui":
 			
-				System.out.println("LUI and LBU yet to be implemented");
+				System.out.println("LUI yet to be implemented");
 				break;
 			
 		}
