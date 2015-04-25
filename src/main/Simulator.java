@@ -95,6 +95,7 @@ public class Simulator {
 					writeBackValue = memoryUnit.loadWord(aluResult);
 					break;
 				case "lb":
+				case "lbu":
 					writeBackValue = memoryUnit.loadByte(aluResult);
 					break;
 				case "sw":

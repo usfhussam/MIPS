@@ -69,10 +69,11 @@ public class ArithmeticLogicUnit {
 			case "sb":
 			case "lb":
 			case "lw":
+			case "lbu":
 				result = immediateConstant + rs.getValue();
 				break;
 			case "lui":
-			case "lbu":
+			
 				System.out.println("LUI and LBU yet to be implemented");
 				break;
 			
