@@ -69,7 +69,7 @@ public class ArithmeticLogicUnit {
 			case "sb":
 			case "lb":
 			case "lw":
-				result = (immediateConstant * 4) + rs.getValue();
+				result = immediateConstant + rs.getValue();
 				break;
 			case "lui":
 			case "lbu":
