@@ -47,6 +47,7 @@ public class ArithmeticLogicUnit {
 				result = ~(rs.getValue() | rt.getValue());
 				break;
 			case "slt":
+			case "sltu":
 				result = rs.getValue() < rt.getValue() ? 1 : 0;
 				break;
 			case "sll":
