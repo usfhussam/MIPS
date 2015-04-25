@@ -77,9 +77,7 @@ public class Instruction {
 			case "nor":
 			case "slt":
 			case "sltu":
-			
-				format = 0;
-				
+				format = 0;		
 				break;
 			case "sll":
 			case "srl":
@@ -87,7 +85,6 @@ public class Instruction {
 				shift = true;
 				break;
 			case "addi":
-	
 				format = 1;
 				break;
 			case "lui":

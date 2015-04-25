@@ -22,6 +22,8 @@ public class ArithmeticLogicUnit {
 			break;
 		case 4:
 			output = executeBranchTypeInstruction(instruction);
+		case 5:
+			output = executeJumpTypeInstruction(instruction);
 		}
 	}
 	
@@ -91,6 +93,20 @@ public class ArithmeticLogicUnit {
 				result = rs.getValue() - rt.getValue();
 				branch = result != 0 ? true : false;
 				break;
+		}
+		return result;
+	}
+	
+	public int executeJumpTypeInstruction(Instruction instruction) {
+		int result = 0;
+		String type = instruction.getType();
+		switch(type) {
+			case "jal":
+			case "j":
+				branch = true;
+				break;
+	
+				
 		}
 		return result;
 	}
