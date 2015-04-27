@@ -23,10 +23,10 @@ public class Main {
 		//System.out.println("Register $t6 has the value: "+RegisterFile.getRegister("$t6").getValue());
 		
 		//function call
-		//String instructions ="double:;add $t2,$t2,$t2;beq $ra,$0,main;jr $ra;main:;addi $t2,$0,4;jal double;";
+		//String instructions ="j main;double:;add $t2,$t2,$t2;jr $ra;main:;addi $t2,$0,4;jal double;";
 		//Simulator sim = new Simulator(instructions);
 		//sim.runAllInstructions();
-	    //System.out.println("Register $t2 has the value: "+RegisterFile.getRegister("$t2").getValue());
+	   //System.out.println("Register $t2 has the value: "+RegisterFile.getRegister("$t2").getValue());
 		
 	}
 }
